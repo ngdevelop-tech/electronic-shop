@@ -1,0 +1,26 @@
+<div class="card bg-secondary text-white">
+  <div class="card-body">
+    <h4 class="card-title">{{product.title}}</h4>
+    <h5 class="card-text">{{product.price|currency:'INR'}}</h5>
+  </div>
+  <table class="table">
+    <tr>
+      <td scope="row">
+        <b>Product Type</b>
+      </td>
+      <td>
+        <i class="fa fa-laptop fa-2x" aria-hidden="true" *ngIf="product.productType=='Laptop'"></i>
+        <i class="fa fa-mobile fa-2x" *ngIf="product.productType=='Mobile'" aria-hidden="true"></i>
+      </td>
+    </tr>
+    <tr>
+      <td scope="row">
+        <b>Brand</b>
+      </td>
+      <td>{{product.brand}}</td>
+    </tr>
+  </table>
+  <div class="card-footer text-muted">
+    <button type="button" class="btn btn-danger" (click)="delete()" >Remove</button>
+  </div>
+</div>

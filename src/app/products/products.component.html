@@ -1,0 +1,9 @@
+<div class="card" >
+  <div class="card-body">
+    <h4 class="card-title">Products</h4>
+    <div class="row">
+      <app-product class="col-md-3" [product]="p" (removed)="deleteProduct($event)" *ngFor="let p of products"></app-product>
+    </div>  
+  </div>
+</div>
+
