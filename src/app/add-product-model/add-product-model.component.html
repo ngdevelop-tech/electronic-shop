@@ -32,7 +32,7 @@
           </div>
           <div class="form-group ">
             <label>Product Type</label>
-            <select class="form-control" formControlName="productType" [ngClass]="{'is-invalid': productType.errors && (productType.touched || productType.dirty), 'is-valid':title.valid}" >
+            <select class="form-control" formControlName="productType" [ngClass]="{'is-invalid': productType.errors && (productType.touched || productType.dirty), 'is-valid':productType.valid}" >
               <option *ngFor="let p of productTypes" [value]="p">{{p}}</option>
             </select>
             <div class="invalid-feedback" >
