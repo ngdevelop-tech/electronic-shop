@@ -1,13 +1,23 @@
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">ADD PRODUCT (Model Driven Form)</h4>
+    <div class="alert alert-info alert-dismissible " role="alert" *ngIf="formSubmitted">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <strong>Bingo !!! Form Submitted...</strong>
+      </div>
     <div class="row">
-
       <div class="col-md-6">
         <form [formGroup]="myForm" novalidate>
           <div class="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" formControlName="title">
+            <input type="text" class="form-control" formControlName="title" [ngClass]="{'is-invalid': title.errors && (title.touched || title.dirty), 'is-valid':title.valid}"   >
+            <div class="invalid-feedback" >
+              <strong *ngIf="title.errors?.required">Title is required</strong>
+              <strong *ngIf="title.errors?.minlength">Title length must be greated than {{title.errors?.minlength.requiredLength}} character. {{title.errors?.minlength.requiredLength - title.errors?.minlength.actualLength}} more character required. </strong>
+            </div>
           </div>
           <div class="form-group ">
             <label>Model Name</label>
@@ -15,24 +25,37 @@
           </div>
           <div class="form-group ">
             <label>Color</label>
-            <input type="text" class="form-control" formControlName="color">
+            <input type="text" class="form-control" formControlName="color" [ngClass]="{'is-invalid': color.errors && (color.touched || color.dirty)}">
+            <div class="invalid-feedback" >
+              <strong>Only Alphabets are allowed. </strong>   
+            </div>
           </div>
           <div class="form-group ">
             <label>Product Type</label>
-            <select class="form-control" formControlName="productType">
+            <select class="form-control" formControlName="productType" [ngClass]="{'is-invalid': productType.errors && (productType.touched || productType.dirty), 'is-valid':title.valid}" >
               <option *ngFor="let p of productTypes" [value]="p">{{p}}</option>
             </select>
+            <div class="invalid-feedback" >
+                <strong>Select Product Type.</strong>    
+            </div>
           </div>
           <div class="form-group">
             <label>Brand</label>
-            <input type="text" class="form-control" formControlName="brand">
+            <input type="text" class="form-control" formControlName="brand" [ngClass]="{'is-invalid': brand.errors && (brand.touched || brand.dirty), 'is-valid':brand.valid}">
+            <div class="invalid-feedback" >
+                <strong>Brand Name is required.</strong>    
+            </div>
           </div>
           <div class="form-group">
             <label>Price</label>
-            <input type="text" class="form-control" formControlName="price">
+            <input type="number" class="form-control" formControlName="price" [ngClass]="{'is-invalid': price.errors && (price.touched || price.dirty), 'is-valid':price.valid}">
+            <div class="invalid-feedback" >
+                <strong *ngIf="price.errors?.required"> Price is required</strong>
+                <strong *ngIf="price.errors?.min"> Price should be greated than zero.</strong>    
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button class="btn btn-default">Reset</button>
+          <button type="submit" [disabled]="myForm.invalid" (click)="addProduct(myForm.value)" class="btn btn-primary">Submit</button>
+          <button class="btn btn-default" (click)="myForm.reset()">Reset</button>
         </form>
       </div>
 
@@ -42,6 +65,6 @@
         </label>
         <pre class="alert alert-dark">{{myForm.value | json}}</pre>
       </div>
-    </div>
+    </div>  
   </div>
 </div>
