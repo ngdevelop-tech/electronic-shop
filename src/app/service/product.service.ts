@@ -18,6 +18,10 @@ export class ProductService {
     this.products.push(product);
   }
 
+  getProduct(id: number) {
+    return this.products.find( p => p.id === id);
+  }
+
   removeProduct(product: Product) {
     let index = this.products.indexOf(product);
     if (index !== -1) {

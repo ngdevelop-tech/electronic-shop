@@ -3,6 +3,7 @@
  * Domain Model : Product
  */
 export class Product {
+    id: number;
     title: string;
     modelName: string;
     color: string;

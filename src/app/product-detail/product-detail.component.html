@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">PRODUCT DETAILS : 
+      <i *ngIf="product.productType=='Mobile'" class="fa fa-mobile" aria-hidden="true"></i>
+      <i *ngIf="product.productType=='Laptop'" class="fa fa-laptop" aria-hidden="true"></i>
+    </h4>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <th>Product ID</th>
+            <td>{{product.id}}</td>
+          </tr>
+          <tr>
+            <th>Title</th>
+            <td>{{product.title}}</td>
+          </tr>
+          <tr>
+            <th>Model Name</th>
+            <td>{{product.modelName}}</td>
+          </tr>
+          <tr>
+            <th>Color</th>
+            <td>{{product.color}}</td>
+          </tr>
+          <tr>
+            <th>Brand</th>
+            <td>{{product.brand}}</td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td>{{product.price | currency : 'INR'}}</td>
+          </tr>
+
+        </table>
+        <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { ProductService } from './../service/product.service';
 import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product-template',
@@ -12,8 +12,9 @@ export class AddProductTemplateComponent implements OnInit {
 
   product: Product = new Product();
   formSubmitted = false;
-  productTypes = ['Laptop', 'Mobile' ];
-  constructor(public productService: ProductService) { }
+  productTypes = ['Laptop', 'Mobile'];
+  constructor(private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,7 @@ export class AddProductTemplateComponent implements OnInit {
   addProduct() {
     this.productService.addProduct(this.product);
     this.formSubmitted = true;
+    this.router.navigateByUrl('/products');
   }
 
 }

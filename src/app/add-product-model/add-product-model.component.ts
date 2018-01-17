@@ -2,6 +2,7 @@ import { ProductService } from './../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Product } from '../models/product';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-product-model',
   templateUrl: './add-product-model.component.html',
@@ -22,7 +23,8 @@ export class AddProductModelComponent implements OnInit {
   price: FormControl;
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -48,7 +50,7 @@ export class AddProductModelComponent implements OnInit {
 
     this.productService.addProduct(product);
     this.formSubmitted = true;
-
+    this.router.navigateByUrl('/products');
   }
 
 }
