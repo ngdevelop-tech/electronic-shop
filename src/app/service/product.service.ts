@@ -1,6 +1,8 @@
 import { MockData } from './../mock-data/mock-product-data';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class ProductService {
@@ -10,16 +12,16 @@ export class ProductService {
     this.products = MockData.Products;
   }
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return of(this.products);
   }
 
   addProduct(product: Product) {
     this.products.push(product);
   }
 
-  getProduct(id: number) {
-    return this.products.find( p => p.id === id);
+  getProduct(id: number): Observable<Product> {
+    return of(this.products.find( p => p.id === id));
   }
 
   removeProduct(product: Product) {
