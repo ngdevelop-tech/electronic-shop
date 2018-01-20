@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    this.productService.removeProduct(product);
+    this.productService.removeProduct(product).subscribe();
 
     this.productService.getProducts()
      .subscribe(

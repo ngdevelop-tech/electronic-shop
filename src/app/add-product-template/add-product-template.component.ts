@@ -20,9 +20,10 @@ export class AddProductTemplateComponent implements OnInit {
   }
 
   addProduct() {
-    this.productService.addProduct(this.product);
-    this.formSubmitted = true;
-    this.router.navigateByUrl('/products');
+    this.productService.addProduct(this.product).subscribe(result => {
+      this.formSubmitted = true;
+      this.router.navigateByUrl('/products');
+    });
   }
 
 }
