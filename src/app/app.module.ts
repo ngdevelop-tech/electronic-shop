@@ -1,3 +1,4 @@
+import { LoaderService } from './service/loader.service';
 import { InMemoryProductService } from './in-memory-product.service';
 import { ProductService } from './service/product.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -37,7 +38,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(InMemoryProductService, { delay : 2000})
   ],
-  providers: [ProductService],
+  providers: [ProductService, LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { LoaderService } from './../service/loader.service';
 import { ProductService } from './../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -24,7 +25,8 @@ export class AddProductModelComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
-    private router: Router) { }
+              private router: Router,
+              private loaderService: LoaderService) { }
 
   ngOnInit() {
 
@@ -47,9 +49,10 @@ export class AddProductModelComponent implements OnInit {
   }
 
   addProduct(product: Product) {
-
+    this.loaderService.showLoader();
     this.productService.addProduct(product).subscribe(result => {
       this.formSubmitted = true;
+      this.loaderService.hideLoader();
       this.router.navigateByUrl('/products');
     });
   }
