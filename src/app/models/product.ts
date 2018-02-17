@@ -9,7 +9,6 @@ export class Product {
     color: string;
     productType: string;
     brand: string;
-    highlights: string[]  = [];
     price: number;
 
     constructor() {

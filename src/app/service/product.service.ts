@@ -1,4 +1,3 @@
-import { MockData } from './../mock-data/mock-product-data';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { Observable } from 'rxjs/Observable';

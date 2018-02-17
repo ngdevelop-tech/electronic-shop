@@ -10,11 +10,6 @@ export class MockData {
             'color': 'Gold',
             'productType': 'Mobile',
             'brand': 'OPPO',
-            'highlights': [
-                '3 GB RAM | 32 GB ROM | Expandable Upto 256 GB',
-                '6 inch Full HD+ Display',
-                '3200 mAh Battery',
-            ],
             'price': 16990
         },
         {
@@ -24,11 +19,6 @@ export class MockData {
             'color': 'Gray',
             'productType': 'Laptop',
             'brand': 'DELL',
-            'highlights': [
-                'Intel Core i5 Processor (7th Gen)',
-                '8 GB DDR4 RAM',
-                '1 TB HDD',
-            ],
             'price': 59990
         }
     ];

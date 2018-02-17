@@ -16,7 +16,8 @@ export class AddProductTemplateComponent implements OnInit {
   productTypes = ['Laptop', 'Mobile'];
   constructor(private productService: ProductService,
             private router: Router,
-            private loaderService: LoaderService) { }
+            private loaderService: LoaderService) {
+  }
 
   ngOnInit() {
   }
